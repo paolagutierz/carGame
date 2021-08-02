@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../css/style.css" rel="stylesheet" type="text/css" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <script src="../js/util.js"></script>
+  </head>
+
+  <body>
+
+    <div class="alert alert-danger" id="alert" role="alert">
+        Es turno de <%= players[0].name %>
+    </div>
+
+    <form action="/save" method="POST">
+        <input
+        type="hidden"
+        id="numberOfCars"
+        name="numberOfCars"
+        value="<%= numberOfCars %>"
+      />
+    <% for (var i =1; i <=numberOfCars; i++ ) { %>
+    <br />
+    <div class="road">
+      <label><%= players[i-1].name %></label>
+      <input type="hidden" value="<%= players[i-1].id %>" name="ids" id="<%= players[i-1].id %>"></input>
+      <input type="hidden" value=false name="isWinner" id="isWinnerPlayer<%= i %>"></input>
+      <input type="hidden" value="<%= players[i-1].name %>" name="names" id="player<%= i %>"><%= players[i-1].name %></input>
+      <img
+        src="../images/<%= cars[i-1] %>.png"
+        class="car car<%= i %>"
+        alt=""
+      />
+    </div>
+    <% } %>
+    <button type="submit" id="submit"></button>    
+    </form>
+
+    <div class="dice">
+        <div>
+            <img id="diceimg" src="../images/1.png" />
+            <button id="click" class="btn btn-danger">"Lanza el dado"</button>
+            <button id="restart" class="btn btn-danger ml-2">"Reiniciar"</button>
+            <input type="hidden" value="0" id="attempts"></input>
+        </div>
+
+        
+        <div>
+            <% if (players[0].id) { %>
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Cantidad de veces ganadas</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <% for (var i =1; i <=numberOfCars; i++ ) { %>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td><%= players[i-1].name %></td>
+                            <td><%= players[i-1].winTimes %></td>
+                          </tr>
+                        <% } %>
+                    </tbody>
+                  </table>
+              <% } %>
+        </div>
+    </div>
+
+    <input type="hidden" id="numberOfCars" name="numberOfCars" value="<%= numberOfCars%>"/>
+  </body>
+</html>

@@ -1,0 +1,69 @@
+#click {
+  margin-left: 20px;
+}
+
+.road {
+  position: relative;
+  margin-top: 20px;
+  width: 100%;
+  height: 100px;
+  background-color: #202020;
+}
+
+.road label {
+  color: white;
+}
+
+.line {
+  display: inline-block;
+  width: 50px;
+  height: 30px;
+  background-color: floralwhite;
+  margin-top: 150px;
+  margin-left: 50px;
+}
+
+.lines {
+  animation-name: lines;
+  animation-duration: 0.2s;
+  animation-iteration-count: infinite;
+  animation-delay: 0.9s;
+  animation-direction: alternate-reverse;
+}
+
+.car {
+  position: absolute;
+  bottom: 0;
+  width: 100px;
+}
+
+.car1 {
+  left: 0;
+}
+
+.car2 {
+  left: 0;
+}
+
+.car3 {
+  left: 0;
+}
+
+.car4 {
+  left: 0;
+}
+
+.dice {
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.dice img {
+  width: 250px;
+}
+
+#submit {
+  display: none;
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <title>cargame</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1 class="mb-4">Car Game</h1>
+
+      <form action="/game" method="POST">
+        <input
+          type="hidden"
+          id="numberOfCars"
+          name="numberOfCars"
+          value="<%= numberOfCars %>"
+        />
+        <div class="mb-3">
+          <% for (var i =1; i <=numberOfCars; i++ ) { %>
+          <br />
+          <div class="form-group">
+            <label for="jugador<%= i %>">Jugador<%= i %></label>
+            <input
+              required
+              value=""
+              type="text"
+              name="jugador<%= i %>"
+              id="jugador<%= i %>"
+              class="form-control"
+            />
+          </div>
+
+          <% } %>
+        </div>
+        <button class="btn btn-danger">Continue</button>
+      </form>
+    </div>
+  </body>
+</html>
